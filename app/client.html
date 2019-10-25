@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>chatapp</title>
+    <!-- <script src="autobahn.js"></script> -->
+    <script src="./autobahn.min.js"></script>
+  </head>
+  <body>
+    <button id="send">Publish</button>
+    <button id="closeCon">Clos Connection</button>
+    <script>
+      var connection = new autobahn.Connection({
+        url: "ws://127.0.0.1:9000", //connect insecure mode
+		    // url: "wss://127.0.0.1/_ws_/", //connet secure mode
+        realm: "realm1"
+      });
+      var session = null;
+      connection.onopen = function(session) {
+        // 1) subscribe to a topic
+        function onevent(args) {
+          console.log("Event:", args[0]);
+        }
+        var counter = 0;
+        document.getElementById("send").addEventListener("click", function() {
+          console.log("publishing to topic 'com.myapp.hello': " + counter);
+          session
+            .publish("com.myapp.hello", [{ "key ": "Hello, world on Click "+counter }], {}, { acknowledge: true })
+            .then(
+              function(publication) {
+                console.log("publication", publication);
+              },
+              function(error) {
+                console.log("publication error ", error);
+              }
+            );
+          counter += 1;
+        });
+
+        session.subscribe("com.myapp.hello", onevent);
+
+        // 2) publish an event
+        session.publish("com.myapp.hello", [{ "key ": "Hello, world!" }]);
+
+        // 3) register a procedure for remoting
+        function add2(args) {
+          return args[0] + args[1];
+        }
+        session.register("com.myapp.add2", add2);
+
+        // 4) call a remote procedure
+        session.call("com.myapp.add2", [2, 3]).then(function(res) {
+          console.log("Result:", res);
+        });
+      };
+      connection.open();
+
+      document.getElementById("closeCon").addEventListener("click", function() {
+          console.log("closeConention to topic 'com.myapp.hello'");
+          connection.close();
+        });
+
+    </script>
+  </body>
+</html>
