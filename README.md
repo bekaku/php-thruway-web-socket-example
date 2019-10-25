@@ -9,7 +9,7 @@ Only supported on PHP 5.6 and up.
 
 ### 1. Download this repository
 ```
-git clone https://github.com/bekaku/thruway-web-socket-example my-app
+git clone https://github.com/bekaku/php-thruway-web-socket-example my-app
 ```
 
 Repository will be downloaded into `my-app/` folder
