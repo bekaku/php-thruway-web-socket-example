@@ -23,10 +23,10 @@ cd my-app
 
 Go to the downloaded repository folder and run:
 ```
-php composer.phar require voryx/thruway
+composer require voryx/thruway
 ```
 ```
-php composer.phar require thruway/pawl-transport
+composer require thruway/pawl-transport
 ```
 Start the WAMP router
 
