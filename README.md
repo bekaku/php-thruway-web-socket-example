@@ -39,8 +39,8 @@ Run http://localhost/my-app/app/client.html on browser and open console for resu
 ```
  <script>
       var connection = new autobahn.Connection({
-            url: "ws://127.0.0.1:9000", //connect insecure mode
-		// url: "wss://127.0.0.1/_ws_/", //connet secure mode
+            url: "ws://127.0.0.1:9000",
+	 // url: "wss://127.0.0.1/_ws_/", //connect secure mode
         realm: "realm1"
       });
   </script>
@@ -70,7 +70,7 @@ And client can connect with secure WebSocket
 ```
  <script>
       var connection = new autobahn.Connection({
-		url: "wss://127.0.0.1/_ws_/", //connet secure mode
+	url: "wss://127.0.0.1/_ws_/", //connect secure mode
         realm: "realm1"
       });
   </script>
