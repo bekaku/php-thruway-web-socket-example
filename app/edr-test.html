@@ -9,11 +9,38 @@
   <body>
     <button id="send">Publish</button>
     <button id="closeCon">Clos Connection</button>
+	<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
     <script>
+	
+	$.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent('http://localhost:8080/#/') + '&callback=?', function(data){
+		console.log(data.contents);
+	});
+	
+	
+	
       var connection = new autobahn.Connection({
-        url: "ws://127.0.0.1:9000", //connect insecure mode
-		    // url: "wss://demo.appedr.com/_ws_/", //connet secure
-        realm: "realm1"
+        //url: "ws://127.0.0.1:9000", //connect insecure mode
+		//url: "wss://demo.appedr.com/_ws_/", //connet secure
+		//url: "wss://ayship.appedr.com:446/_ws_/",//if your ssl port not 443 just put it to your domain
+		//url: "wss://ayuttech.appedr.com:446/_ws_/",
+		//url: "wss://chp.appedr.com:446/_ws_/",
+		//url: "wss://dtec.appedr.com:446/_ws_/",
+		//url: "wss://maesod.appedr.com:446/_ws_/",
+//		url: "wss://nkstec.appedr.com:446/_ws_/",
+		//url: "wss://phayaotc.appedr.com:446/_ws_/",
+		//url: "wss://pntc.appedr.com:446/_ws_/",
+		//url: "wss://sbt.appedr.com:446/_ws_/",
+		//url: "wss://taktc.appedr.com:446/_ws_/",
+		//url: "wss://technicprachin.appedr.com:446/_ws_/",
+		//url: "wss://udvc.appedr.com:446/_ws_/",
+		//url: "wss://wpptech.appedr.com:446/_ws_/",
+		//url: "ws://master.appedr.com:9000",
+		//url: "wss://uvc.appedr.com:446/_ws_/",  
+		url: "wss://tapc.appedr.com:446/_ws_/",  
+		realm: "4D635166546A576E5A7134743777217A25432A462D4A614E645267556B587032"
       });
       var session = null;
       connection.onopen = function(session) {
