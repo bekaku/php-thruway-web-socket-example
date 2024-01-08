@@ -19,7 +19,7 @@ Switch to the new directory
 cd my-app
 ```
 
-### 2. Instal Composer ependencies
+### 2. Install Composer Dependencies
 
 Go to the downloaded repository folder and run:
 ```
