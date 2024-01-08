@@ -3,7 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 // require '../vendor/autoload.php';
 // require 'C:\composer/vendor/autoload.php';
 
-//un mark is you want to quiet mode
+//un mark if you want to quiet mode
 //use Psr\Log\NullLogger;
 //use Thruway\Logging\Logger;
 //Logger::set(new NullLogger());
