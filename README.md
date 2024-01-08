@@ -30,7 +30,7 @@ composer require thruway/pawl-transport
 ```
 Start the WAMP router
 
-      $ php app/cmd.php
+      $ php my-app/cmd.php
     
 Thruway is now running on 127.0.0.1 port 9000 
 
